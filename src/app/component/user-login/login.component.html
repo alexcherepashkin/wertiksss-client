@@ -1,0 +1,54 @@
+<div class="row ">
+    <div class="col-md-10 col-11 border rounded-lg shadow-lg bg-light py-md-5 py-4 mx-auto">
+        <div class=" border rounded-lg shadow bg-light px-5 py-lg-5 py-4 mx-auto" style="max-width: 370px !important">
+
+            <img src="assets/minecraft.ico" class="d-block mx-auto mb-4" id="login-img" width="96" height="96"
+                alt="Login img" />
+
+            <h3 class="text-center mb-4 text-muted">User Login</h3>
+
+            <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="loginForm.form.valid && onSubmit()" #loginForm="ngForm"
+                novalidate>
+                <div class="form-group ">
+                    <div class="alert alert-danger " role="alert" *ngIf="loginForm.submitted && isLoginFailed ">
+                        <strong>Holy guacamole!</strong><br />{{ errorMessage }}
+                        <!-- {{ errorMessage || 'An unknown error occurred' }} -->
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="sr-only" for="username">Username</label>
+                    <input [(ngModel)]="form.username" type="text" class="form-control" name="username"
+                        #username="ngModel" placeholder="Username" id="username" required maxlength="30"
+                        [ngClass]="{'is-invalid' : loginForm.submitted && username.invalid}" pattern="^\S+(.+)*$" />
+                    <div class="invalid-feedback">
+                        <div *ngIf="username.errors?.required">Username is required</div>
+                        <div *ngIf="username.errors?.pattern">Cannot start with a space</div>
+                        <!-- <div *ngIf="username.invalid">is</div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <input [(ngModel)]="form.password" type="password" class="form-control" name="password"
+                        #password="ngModel" placeholder="Password" id="password" required minlength="1" maxlength="30"
+                        [ngClass]="{'is-invalid' : loginForm.submitted && password.invalid}" />
+                    <div class="invalid-feedback">
+                        <div *ngIf="password.errors?.required">Password cannot be empty</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit" [disabled]="loading">
+                        <strong>Login</strong>
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm ml-1"></span>
+                    </button>
+                </div>
+            </form>
+
+            <div class="alert alert-success" role="alert" *ngIf="isLoggedIn">
+                You have successfully logged in
+            </div>
+
+        </div>
+    </div>
+</div>

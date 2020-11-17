@@ -1,0 +1,31 @@
+<div class="row ">
+    <div class="col-md-10 col-11 border rounded-lg shadow-lg bg-light py-md-5 py-4 px-4 mx-auto">
+        <div class="col-lg-9 col mx-auto border rounded-lg shadow bg-light p-lg-5 p-4">
+            <!-- style="color: #369;" -->
+            <h2 class="text-center mb-4">User profile list</h2>
+
+            <table class="table  table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="pr-1">#ID</th>
+                        <th>Username</th>
+                        <th>Roles</th>
+                        <th class="px-1 text-center">-</th>
+                    </tr>
+                </thead>
+                <tbody class="table-sm">
+                    <tr *ngFor="let user of users">
+                        <th scope="row" class="pl-3">{{ user.id }}</th>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.roles }}</td>
+                        <td class="px-0 text-center">
+                            <button type="button" class="btn btn-danger btn-sm  px-1 py-0" title="Delete"
+                                (click)="removeUser(user)">×</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- TODO: Add All Account List-->
+        </div>
+    </div>
+</div>

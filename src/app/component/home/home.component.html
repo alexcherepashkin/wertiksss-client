@@ -1,0 +1,24 @@
+<div class="row ">
+    <div class="col-md-10 col-11 border rounded-lg shadow-lg bg-light py-md-5 py-4 mx-auto">
+        <div class="col-lg-9 col mx-auto">
+            <div class="jumbotron border shadow" style="color: #369;">
+                <h1 class=" mb-4">Welcome to the <strong>WERTIKSSS</strong></h1>
+                <p class="lead">
+                    This is a very simple application for maintaining a list of client accounts.
+                </p>
+                <hr class="mb-4">
+
+                <div *ngIf="isLoggedIn">
+                    <a class="btn btn-success btn-lg" role="button" href="#" routerLink="/main">Let's go!</a>
+                </div>
+
+                <div *ngIf="!isLoggedIn" class="text-muted ">Not registered yet?
+                    <a class="" role="button" routerLink="/auth/register">Let's do it!</a>
+                    <div>
+                        Or please, <a class="" role="button" routerLink="/auth/login">Login!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

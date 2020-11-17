@@ -1,0 +1,23 @@
+<div class="row ">
+    <div class="col-md-10 col-11 border rounded-lg shadow-lg bg-light py-md-5 py-4 mx-auto">
+        <div *ngIf="currentUser; else notLoggedIn" class="col-lg-9 col mx-auto">
+            <div class="jumbotron border shadow" style="color: #369;">
+                <h3><strong>{{ currentUser.username | uppercase }}</strong> Profile</h3>
+                <hr class="mb-4">
+
+                <p><strong>Email: </strong> {{ currentUser.email }}</p>
+
+                <strong>Permissions: </strong>
+                <ul>
+                    <li *ngFor="let role of currentUser.roles">{{ role }}</li>
+                </ul>
+
+                <p class="text-muted mt-5"><strong>Authorized until: </strong> {{ expiration | date:"dd MMMM yyyy"}}</p>
+            </div>
+        </div>
+
+        <ng-template #notLoggedIn>
+            <h1 class="text-center">Please login!</h1>
+        </ng-template>
+    </div>
+</div>

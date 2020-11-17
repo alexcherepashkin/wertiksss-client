@@ -1,0 +1,89 @@
+<div class="col-11 text-nowrap mx-auto">
+    <h2 class="mb-md-5 mb-4 text-center font-weight-normal">Edit account</h2>
+
+    <form *ngIf="account?.id" (ngSubmit)="onSubmit()" #accountForm="ngForm" class="" novalidate>
+        <!-- <fieldset [disabled]="!isEditor"> -->
+        <div class="form-group row align-items-center mb-2">
+            <label for="phoneModel" class="col-3 col-form-label py-1">Phone model:</label>
+            <div class="col">
+                <input [(ngModel)]="account.phoneModel" type="text" class="form-control" placeholder="---"
+                    name="phoneModel" id="phoneModel" maxlength="40" required>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="phoneImei" class="col-3 col-form-label py-1">Phone imei:</label>
+            <div class="col">
+                <input [(ngModel)]="account.phoneImei" type="text" class="form-control" placeholder="---"
+                    name="phoneImei" id="phoneImei" maxlength="40">
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="phoneNumber" class="col-3 col-form-label py-1">Phone number:</label>
+            <div class="col">
+                <input [(ngModel)]="account.phoneNumber" type="tel" class="form-control" placeholder="---"
+                    name="phoneNumber" id="phoneNumber" maxlength="40">
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="firstName" class="col-3 col-form-label py-1">First name:</label>
+            <div class="col">
+                <input [(ngModel)]="account.firstName" type="text" class="form-control" placeholder="---"
+                    name="firstName" id="firstName" maxlength="40" required>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="lastName" class="col-3 col-form-label py-1">Last name:</label>
+            <div class="col">
+                <input [(ngModel)]="account.lastName" type="text" class="form-control" placeholder="---" id="lastName"
+                    name="lastName" maxlength="40" required>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="dateOfBirth" class="col-3 col-form-label py-1">Date of birth:</label>
+            <div class="col">
+                <input [(ngModel)]="account.dateOfBirth" type="date" class="form-control" id="dateOfBirth"
+                    name="dateOfBirth">
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="email" class="col-3 col-form-label py-1">Email:</label>
+            <div class="col">
+                <input [(ngModel)]="account.email" type="email" class="form-control" id="email" placeholder="---"
+                    name="email" maxlength="40">
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="password" class="col-3 col-form-label py-1">Password:</label>
+            <div class="col">
+                <input [(ngModel)]="account.password" type="text" class="form-control" placeholder="---" id="password"
+                    name="password" maxlength="40">
+            </div>
+        </div>
+        <div class="form-group row align-items-baseline mb-2">
+            <label for="answers" class="col-3 col-form-label py-1">Secret answers:</label>
+            <div class="col-9 input-group" id="answers">
+                <textarea [(ngModel)]="account.secretAnswers[0]" class="form-control" placeholder="---"
+                    name="secretAnswers[0]" style="resize: none;"></textarea>
+                <textarea [(ngModel)]="account.secretAnswers[1]" class="form-control" placeholder="---"
+                    name="secretAnswers[1]" style="resize: none;"></textarea>
+                <textarea [(ngModel)]="account.secretAnswers[2]" class="form-control" placeholder="---"
+                    name="secretAnswers[2]" style="resize: none;"></textarea>
+            </div>
+        </div>
+        <!-- </fieldset> -->
+
+        <hr class="mt-lg-5 mt-4">
+
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="goBack()">Back</button>
+            <button type="submit" class="btn btn-success px-5" [disabled]="!accountForm.form.valid || loading">Update
+                <span *ngIf="loading" class="spinner-border spinner-border-sm ml-1"></span></button>
+        </div>
+    </form>
+
+    <div *ngIf="!account?.id">
+        <!-- <h2 class="mb-md-5 mb-4 text-center font-weight-normal">No account</h2> -->
+        <hr class="mt-lg-5 mt-4">
+        <button type="button" class="btn btn-sm btn-outline-info" (click)="goBack()">Back</button>
+    </div>
+</div>

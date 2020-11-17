@@ -1,0 +1,43 @@
+<div class="col-11  mx-auto" *ngIf="(accounts$ | async) as accounts">
+    <div *ngIf="accounts?.length; else noAccounts">
+        <h2 class="mb-md-5 mb-4 text-center font-weight-normal">Found accounts</h2>
+
+        <div class="list-group">
+            <div class="list-group-item p-1 d-flex align-items-center text-nowrap"
+                style="background-color: rgba(220, 220, 220, 0.5);">
+                <span class="col-2 mr-3 pl-lg-3 pl-2 h6 mb-0">
+                    Phone №</span>
+                <span class="col pl-4 pr-5 text-center h6 mb-0" style="border-left: 1px solid darkgray;">
+                    Full name</span>
+                <span class="col-4 flex-shrink-1 px-0 text-center h6 mb-0" style="border-left: 1px solid darkgray;">
+                    Phone model</span>
+                <span class="px-4" style="border-left: 1px solid darkgray;">--</span>
+            </div>
+
+            <button *ngFor="let account of accounts"
+                class="list-group-item list-group-item-action p-1 d-flex align-items-center" type="button"
+                routerLink="../{{account.id}}">
+                <div class="col-2 p-0 mr-3 text-break">
+                    <div class="badge badge-light  font-weight-normal text-wrap px-1 d-table"
+                        style="background-color: floralwhite;">{{account.phoneNumber}}</div>
+                </div>
+                <div class="col pl-0 pr-1 text-center text-truncate">{{account.firstName}} {{account.lastName}}</div>
+                <div class="col-4 pl-0 pr-1 text-center text-truncate">{{account.phoneModel}}</div>
+                <div class="">
+                    <a role="button" class="btn btn-outline-primary btn-sm px-1 py-0" onclick="event.stopPropagation()"
+                        routerLink="../{{account.id}}/edit">Edit</a>
+                    <button type="button" class="btn btn-danger btn-sm ml-1 my-1 px-1 py-0" title="Delete"
+                        (click)="deleteAccount(account)" onclick="event.stopPropagation()">×</button>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <ng-template #noAccounts>
+        <h2 class="mb-md-5 mb-4 text-center font-weight-normal">No accounts found</h2>
+    </ng-template>
+
+    <hr class="mt-lg-5 mt-4">
+
+    <button type="button" class="btn btn-outline-info btn-sm py-2" (click)="goBack()">Back</button>
+</div>

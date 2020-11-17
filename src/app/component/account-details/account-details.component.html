@@ -1,0 +1,81 @@
+<div class="col-11 text-nowrap mx-auto">
+    <h2 class="mb-md-5 mb-4 text-center font-weight-normal">Account details</h2>
+
+    <div *ngIf="account?.id">
+        <div class="form-group row align-items-center mb-2">
+            <label for="phoneModel" class="col-3 col-form-label py-1">Phone model:</label>
+            <div class="col-9">
+                <span class="form-control" id="phoneModel">{{account?.phoneModel}}</span>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="phoneImei" class="col-3 col-form-label py-1">Phone imei:</label>
+            <div class="col-9">
+                <span class="form-control" id="phoneImei">{{account?.phoneImei}}</span>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="phoneNumber" class="col-3 col-form-label py-1">Phone number:</label>
+            <div class="col">
+                <span class="form-control" id="phoneNumber">{{account?.phoneNumber}}</span>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="firstName" class="col-3 col-form-label py-1">First name:</label>
+            <div class="col">
+                <span class="form-control text-truncate" id="firstName">{{account?.firstName}}</span>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="lastName" class="col-3 col-form-label py-1">Last name:</label>
+            <div class="col">
+                <span class="form-control text-truncate" id="lastName">{{account?.lastName}}</span>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="dateOfBirth" class="col-3 col-form-label py-1">Date of birth:</label>
+            <div class="col">
+                <span class="form-control" id="dateOfBirth">{{account?.dateOfBirth | date:"dd.MM.yyyy"}}</span>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="email" class="col-3 col-form-label py-1">Email:</label>
+            <div class="col">
+                <span class="form-control text-truncate" id="email">{{account?.email}}</span>
+            </div>
+        </div>
+        <div class="form-group row align-items-center mb-2">
+            <label for="password" class="col-3 col-form-label py-1">Password:</label>
+            <div class="col">
+                <span class="form-control" id="password">{{account?.password}}</span>
+            </div>
+        </div>
+        <div class="form-group row  mb-2">
+            <label for="answers" class="col-3 col-form-label ">Secret answers:</label>
+            <div class="col-9 input-group text-wrap" id="answers">
+                <span class="form-control" id="answers-0"
+                    style="height: 62px; word-wrap: break-word; overflow: auto;">{{account?.secretAnswers[0]}}</span>
+                <span class="form-control" id="answers-1"
+                    style="height: 62px; word-wrap: break-word; overflow: auto;">{{account?.secretAnswers[1]}}</span>
+                <span class="form-control" id="answers-2"
+                    style="height: 62px; word-wrap: break-word; overflow: auto;">{{account?.secretAnswers[2]}}</span>
+            </div>
+        </div>
+
+        <hr class="mt-lg-5 mt-4">
+
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="goBack()">Back</button>
+            <button type="button" class="btn btn-sm btn-outline-danger ml-auto mr-3" (click)="confirmDeletion(account)"
+                [disabled]="!account?.id">Delete</button>
+            <button type="button" class="btn btn-primary px-5" routerLink="./edit"
+                [disabled]="!account?.id">Edit</button>
+        </div>
+    </div>
+
+    <div *ngIf="!account?.id">
+        <!-- <h2 class="mb-md-5 mb-4 text-center font-weight-normal">No account</h2> -->
+        <hr class="mt-lg-5 mt-4">
+        <button type="button" class="btn btn-sm btn-outline-info" (click)="goBack()">Back</button>
+    </div>
+</div>

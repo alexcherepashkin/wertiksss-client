@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div id="left-side"
+        class="col-md-3 col-11 border rounded-lg shadow-lg bg-light py-xl-5 py-lg-4 px-lg-4 p-3 mr-xl-4 mr-md-3 h-100">
+        <div class="row px-md-0 px-4 justify-content-center">
+
+            <div id="search-box" class="col col-xl-11 col-md-12">
+                <div class="border rounded-lg shadow bg-light p-xl-4 p-md-3 p-4">
+                    <h4 class="font-weight-normal text-center">Search</h4>
+                    <hr class="mt-2 mb-lg-4 mb-3 mx-4">
+
+                    <div class="input-group text-monospace">
+                        <input #searchTerm type="search" class="form-control pr-0 pl-2" placeholder="Enter..."
+                            aria-describedby="search-term">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-warning pl-lg-3 pl-md-2 font-italic" id="search-term"
+                                (click)="searchBy(searchTerm.value, searchOption.value)">Go</button>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row-reverse flex-wrap-reverse mt-3 align-items-center">
+                        <div class="flex-shrink-0 ml-2 ">
+                            <select #searchOption class="custom-select custom-select-sm pr-4 font-italic"
+                                id="select-options">
+                                <option *ngFor="let option of searchOptions" class="" value="{{option}}">{{option}}
+                                </option>
+                            </select>
+                        </div>
+                        <label class="col-form-label col-form-label-sm" for="select-options">by option:</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="controls" class="col col-xl-11 col-md-12">
+                <div class="border rounded-lg shadow bg-light pb-xl-5 pt-xl-4 pb-4 pt-3 mt-md-3">
+                    <div class="col-xl-6 col-md-7 col-6 p-0 mx-auto">
+                        <h4 class="font-weight-normal text-center">Controls</h4>
+                        <hr class="mt-2 mb-lg-4 mb-3 mx-4">
+
+                        <button type="button" class="btn btn-info btn-lg py-lg-2 py-1 px-0 w-100 mb-3"
+                            routerLink="./accounts/form">Add new</button>
+                        <button type="button" class="btn btn-info btn-lg py-lg-2 py-1 px-0 w-100"
+                            routerLink="./accounts">Accounts</button>
+                    </div>
+                </div>
+            </div>
+<!--  -->
+        </div>
+    </div>
+
+    <div id="right-side"
+        class="col-xl-7 col-md-8 col-11 border rounded-lg shadow-lg bg-light py-lg-5 py-md-4 py-3 px-xl-5 px-lg-3 px-0 mt-md-0 mt-2">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- <h3 class="font-weight-normal text-center w-100 px-">Control Panel</h3>
+            <hr class="mt-2 mb- mx-5 w-100">
+            <div id="search" class="col col-xl-11 col-md-12">
+                <div class="shadow border rounded-lg bg-light px-xl-4 px-md-3 py-xl-5 p-4">
+                    <div class="input-group text-monospace">
+                        <input #searchTerm type="search" class="form-control pr-0 pl-2" placeholder="Search..."
+                            aria-describedby="search-term">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-warning pl-lg-3 pl-md-2 font-italic" id="search-term"
+                                (click)="searchBy(searchTerm.value, searchOption.value)">Go</button>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row-reverse flex-wrap-reverse mt-3 align-items-center">
+                        <div class="flex-shrink-0 ml-2 ">
+                            <select #searchOption class="custom-select custom-select-sm pr-4 font-italic"
+                                id="select-options">
+                                <option *ngFor="let option of searchOptions" class="" value="{{option}}">{{option}}
+                                </option>
+                            </select>
+                        </div>
+                        <label class="col-form-label col-form-label-sm" for="select-options">by option:</label>
+                    </div>
+                </div>
+            </div>
+            <div id="controls" class="col col-xl-11 col-md-12">
+                <div class="border rounded-lg shadow bg-light py-xl-5 py-md-4 py-3 mt-md-3">
+                    <div class="col-xl-6 col-lg-7 col-md-8 col-6 p-0 mx-auto">
+                        <button type="button" class="btn btn-primary btn-lg py-lg-2 py-1 px-0 w-100 mb-3"
+                            routerLink="./accounts/form">Add new</button>
+                        <button type="button" class="btn btn-primary btn-lg py-lg-2 py-1 px-0 w-100"
+                            routerLink="./accounts">List of all</button>
+                    </div>
+                </div>
+            </div> -->

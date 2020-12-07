@@ -1,4 +1,4 @@
-<nav id="nav-bar" class="navbar navbar-expand-md navbar-light sticky-top shadow p-1" style="background-color: #e9ecef;">
+<nav id="nav-bar" class="navbar navbar-expand-md navbar-dark bg-secondary sticky-top shadow p-1">
     <div class="container-lg px-lg-0 px-4">
         <a id="ico-player-toggler" class="navbar-brand py-1 m-0" role="button" onclick="player.hidden = !player.hidden">
             <img src="assets/minecraft.ico" width="37" height="37" class="" alt="X">
@@ -41,7 +41,7 @@
     <router-outlet></router-outlet>
 </div>
 
-<audio id="player" class="rounded-pill shadow p-0" controls autoplay loop hidden
+<audio id="player" class="rounded-pill shadow p-0" controls  loop hidden
     src="assets/C418 - Minecraft.mp3"
     style="z-index: 1000; position: fixed; top: 60px; left: 6px;">
 </audio>
